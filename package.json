@@ -13,8 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server.js",
-    "migrate": "node scripts/migrate.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
