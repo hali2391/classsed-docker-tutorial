@@ -8,7 +8,7 @@ COPY . /
 
 RUN npm install
 
-RUN node ./scripts/migrate.js
+CMD ["npm", "migrate"]
 
 ENTRYPOINT [ "npm", "start" ]
 
