@@ -1,0 +1,43 @@
+<%- include('../partials/header',{my_title: my_title}); -%>
+<%- include('../partials/manu'); -%>
+
+<div class="container">
+    <br>
+    <div class="jumbotron">
+      <h1 class="display-4">movie reviews</h1>
+      <p class="lead">All the reviews the users has entered</p>
+      <form action="/get_reviews/search" method="get">
+        <input type="text" name="title_search" placeholder="movie name">
+        <input class="button" type="submit" name="search_movies" value = "Submit">
+    <table class="table table-bordered" id="stats_table">
+        <tr>
+            <th class="text-center" colspan="2" >id</th>
+            <th class="align-bottom"rowspan="2" >movie title</th>
+            <th class="align-bottom" rowspan="4">review</th>
+            <th class="align-bottom" rowspan="2">review date</th>
+        </tr>
+        </tr> 
+    <% if (data ) { %>
+        <% const id = data[0] || []; %>
+        <% const title = data[1] || []; %>
+        <% const review = data[2] || []; %>
+        <% const date = data[3] || []; %>
+        <% %>
+        <% for (let i=0; i < id.length; i++) { %>
+            <% const ids = id[i].id %>
+            <% const titles = title[i].movie_title || ""; %>
+            <% const reviews = review[i].review || ""; %>
+            <% const dates = date[i].reveiw_date ? new Date(date[i].review_date).toLocaleDateString() : ""; %>
+        
+            <tr class="">
+                <td class="text-center"><%= ids %></td>
+                <td class="align-bottom"><%= titles %></td>
+                <td class="align-bottoml"><%= reviews %></td>
+                <td class="align-bottom"><%= dates %></td>
+            </tr>
+        <% } %>
+               
+        <br>
+    </form>
+    </div>
+</div>

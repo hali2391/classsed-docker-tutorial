@@ -1,0 +1,54 @@
+<%- include('../partials/header',{my_title: my_title}); -%>
+<%- include('../partials/manu'); -%>
+<body>
+  <main>
+    <div class="" style="background-color: #0f415c;">
+      <div class="container-fluid" style="padding: 2%; ">
+        <form class="" action="/get_data" method="post">
+          <div class="row">
+            <div class="col-3">
+
+            </div>
+            <div class="col-5">
+              <input class="form-control" type="text" name="title" placeholder="Enter Movie Name">
+            </div>
+            <div class="col-5">
+                <input class="form-control" type="text" name="id" placeholder="Enter Movie id">
+            </div>
+            <div class="col-1">
+              <input class="btn btn-light" type="submit" name="Submit" value = "Submit"/>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container-lg" style="margin-top: 2%;">
+      <% if (error) { %>
+        <div class="alert alert-danger"><%- message %></div>
+      <% } %>
+      
+      <%- include('../partials/reviews', {items: items}); -%>
+      
+    </div>
+  </form>
+  <a href="#" id="button" class="button">add movie review</a>
+  <div class="movie-form">
+    <div clas="movie-content">
+      <div class="close">+</div>
+      <form action="/add_movie" method="post" id="add_movie_form" style="visibility: hidden; height: 0">
+      <input type="text" name="movie_name" placeholder="movie name">
+      <br>
+      <textarea rows = "5" cols = "60" name = "movie_review" >
+        Enter your review here:
+      </textarea><br>
+      <input type="date" name="movie_date" placeholder="the date of review">
+      <div class="col-1">
+      <input class="button" type="submit" name="add_movies" value = "Submit">
+    </div>
+</form>
+</div>
+</div>
+
+
+  </main>
+<%- include('../partials/footer'); %>

@@ -1,0 +1,15 @@
+version: '3.9'
+
+services: 
+    server:
+        build: .
+        ports: 
+          - '2000:2000'
+    db:
+        image: 'postgres'
+        ports: 
+            - '4321:5432'
+        environment:
+            POSTGRES_PASSWORD: '!Bear1Tuesday189'
+            POSTGRES_USER: 'movie'
+        
